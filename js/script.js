@@ -1,18 +1,18 @@
 // Pokemon's List
-const ul = document.getElementById('pokemons');
+const ul = document.getElementById('pokemons')
 const url = 'https://pokeapi.co/api/v2/pokemon?limit=10&offset=' + Math.floor(Math.random() * 1154)
 
 fetch(url)
     .then(response => response.json())
     .then(data => {
         data.results.map(function (pokemon) {
-            let li = document.createElement('li');
-            let a = document.createElement('a');
+            let li = document.createElement('li')
+            let a = document.createElement('a')
             a.setAttribute("onclick", `searchPokemon("${pokemon.url}")`)
-            a.innerText = pokemon.name[0].toUpperCase() + pokemon.name.slice(1).toLowerCase();
+            a.innerText = pokemon.name[0].toUpperCase() + pokemon.name.slice(1).toLowerCase()
 
-            li.appendChild(a);
-            ul.appendChild(li);
+            li.appendChild(a)
+            ul.appendChild(li)
         })
     })
 
